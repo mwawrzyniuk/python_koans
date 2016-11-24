@@ -33,8 +33,26 @@ from runner.koan import *
 # Your goal is to write the score method.
 
 def score(dice):
-    # You need to write this method
-    pass
+    diffrence = len(set(dice))
+    scor = 0
+    hand = {1:0,2:0,3:0,4:0,5:0,6:0}
+    for num in dice:
+        hand[num] += 1
+
+    if hand[5] > 0 and hand[5] < 3 :
+        scor += (hand[5] * 50)
+    if hand[5] > 0 and hand[5] > 3 :
+        scor += ((hand[5] - 3) * 50)
+    if hand[1] > 0  and hand[1] < 3:
+        scor +=  (hand[1] * 100)
+    if hand[1] > 0  and hand[1] > 3:
+        scor +=  ((hand[1] -3) * 100)
+    if hand[1] >= 3:
+        scor +=  1000
+
+    if max(hand.values()) >= 3 and hand[1] < 3:
+        scor += [a * 100 for a in hand if hand[a] >= 3][0]
+    return scor
 
 class AboutScoringProject(Koan):
     def test_score_of_an_empty_list_is_zero(self):
