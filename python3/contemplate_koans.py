@@ -27,6 +27,7 @@ if __name__ == '__main__':
                   "Python 3.3 or greater.\n" +
                   "Your version of Python is older, so you may run into " +
                   "problems!\n\n" +
+
                   "But lets see how far we get...\n" +
                   "********************************************************\n")
 
